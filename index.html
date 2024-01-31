@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+
+
+<body>
+
+    <div id="mydivRender"></div>
+    <div id="mydivComponentClass"></div>
+    <div id="mydivComponentFunc"></div>
+
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+      
+   <script type="text/babel">
+
+        const k = 5;
+        const block1 = (
+            <div class="block-div" style = {{ color: "red"}} >
+                <h1 className="title">Использование фукнции render()</h1>
+                <h2>Использвоание выражений {k} {10 + 10}</h2>
+            </div>
+            );
+        const b = <input type="text" />; // Пустые элементы дб закрыты 
+        // Вставка выражения через {}
+        // Многострочный код через () должен быть завернут в один! элемент верхнего уровня 
+        // Для установки класса className!
+
+
+        //ФУНКЦИЯ RENDER()
+        ReactDOM.render(block1, document.querySelector('#mydivRender'));
+
+        // Отображение на странице (код, элемент внутрь которого вставить код)
+
+        /* КОМПОНЕНТЫ
+                Имя начинается с большой буквы
+                Возвращают HTML через функцию render 
+                На компоненты можно ссылаться в других компонентах с помощью <Имя />
+                На компоненты можно ссылаться с другиз файлов: 
+                    Файл должен начинаться с импорта React и заканчиваться export default Имя_компонента;
+                    В дургом файле необходимо импортировать с помощью import Имя_компонента from 'имя файла';
+                */
+        class CompClass extends React.Component {
+            constructor (props){
+                super(); // род. класса 
+                this.state = { text: "Компонент класса" }}
+                // Cвойства хранятся в объекте state
+                /* Также можно добавлять свойства через props
+                    Свойства указываются при вызове компонента
+                    Можно также передавать аргументы от одного компонента другому
+                    В свойствах можно указывать переменные
+                    Если есть конструктор, то можно указывать там, а также передавать super()
+                */
+            changeState() {
+                this.setState({text: "sdnnvff"}); }
+                // Измение объекта state
+            render() { return <h2> {this.state.text} {this.props.text} {this.props.count}</h2> }} 
+        // Создание компонента класса
+        
+        function CompFunc () { return <h2>Компонент функции</h2> }
+        // Создание компонента функции
+        
+        const k1 = 10;
+        ReactDOM
+            .render(<CompClass text = "использование props" count = {k1}/>, document.querySelector('#mydivComponentClass'))
+        // text - свойство props, которое будет передано 
+            .render(<CompFunc/>, document.querySelector('#mydivComponentFunc'));
+        // Для использование компонента <Имя />
+        
+
+
+
+    </script>
+
+</body>
+
+</html>

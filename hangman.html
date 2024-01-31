@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="style.css" media="screen">
+</head>
+<body class="body">
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <script type="text/babel">
+
+
+        function MainAppend() {
+            return (
+                <main className="main">
+                    <div className='quiz-container'>
+                        <div className='word-container'></div>
+                        <p className='info-container'>Incorrect guesses:
+                            <span className='incorrect-container'>0 / 6</span>
+                        </p>
+                        <div className='keyboard-container'>{arrButton}</div>
+                    </div>
+                </main>
+            );
+        }
+
+        const arrButton = [];
+        for (const char of 'ABCDEFGHIJKLMNOPQRSTUVWXYZ')
+            arrButton.push(<button className={'key ' + char} > {char}</button >)
+
+
+        ReactDOM.render(<MainAppend />, document.querySelector("body"));
+
+        
+
+    </script>
+
+</body>
+
+</html>

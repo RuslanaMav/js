@@ -1,0 +1,15 @@
+
+$color: #e0dbd7;
+$font: 'Pacifico', cursive;
+
+
+
+.key {
+    background-color: $color;
+    font-family: $font;
+    width: 30px;
+    height: 30px;
+    border-radius: 5px;
+    transition: 1s;
+}
+
